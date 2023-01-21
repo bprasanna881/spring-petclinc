@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: my-spring-petclinic
+  spec:
+   selector:
+    matchLabels:
+    app: spring-petclinic
+   replicas: 2 # tells deployment to run 2 pods matching the template
+   template:
+    metadata:
+      labels:
+        app: spring-petclinic
+    spec:
+      containers:
+      - name: angular
+        image: kaksacr12345.azurecr.io/bprasanna881/spring-petclinc:#{Build.BuildId}#
+        ports:
+      - containerPort: 80
+## test2
+##2
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
+kind: Service
+apiVersion: v1
+metadata:
+  name: spring-petclinic-service
+spec:
+  selector:
+    app: spring-petclinic
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
