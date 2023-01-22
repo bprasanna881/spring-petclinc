@@ -18,7 +18,7 @@ spec:
         image: kaksacr12345.azurecr.io/bprasanna881/spring-petclinc:#{Build.BuildId}#
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8085
 ## test2
 ##2
 ---
