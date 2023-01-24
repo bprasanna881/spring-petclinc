@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: my-springboot-petclinicdeployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: springboot-app-petclinic
